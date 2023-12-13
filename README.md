@@ -14,5 +14,6 @@ For now it moves files from Download folder to the permanent directory.
 
 ### 0.2.0
 
-- [ ] Create directories if they don't exist.
+- [X] Create directories if they don't exist.
+- [ ] Refactor the whole thing
 - [ ] Implement SQLite for managing what is already there.

@@ -5,6 +5,7 @@ import sys
 import os
 import re
 import yaml
+import string
 
 
 # MAIN ENTRY POINT main() -> 0 {{{1 
@@ -53,10 +54,20 @@ def checkMove(the_arg) -> int:
     # read the config file for all paths
     loc_conf = readConf()
 
+    # makes sure the output file is there
+
     # format the directory path
     dl_path = os.path.expanduser(loc_conf["input"])
 
-    # get all the metadata
+    # format the output directory
+    out_path = os.path.expanduser(loc_conf["output"])
+
+    # check to see if the output directory exists
+    # if it doesn't, then create one.
+    if the_arg=="move":
+        if not os.path.isdir(out_path):
+            makeOutDirs(out_path)
+            print("[i] - out directory NOT found. Created.")
 
     # make list of all files
     # in the download folder
@@ -141,6 +152,23 @@ def moveTheFile(from_path, to_path) -> int:
     # EXECUTE
     subprocess.run(command) 
     return 0
+# }}}
+
+
+#  makeOutDirs(){{{
+def makeDirs(out_path) -> None:
+
+    "Function for output directory"
+
+    # make the global out path
+    os.makedirs(out_path)
+
+    # now go through all the letters
+    # of the alphabet and create those dirs
+    for letters in string.ascii_uppercase:
+        os.makedirs(f"{out_path}/{letters}")
+
+    return None
 # }}}
 
 
