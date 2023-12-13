@@ -9,11 +9,14 @@ The **V**im **I**nspired **B**ibliography **Man**ager.
 
 For now it moves files from Download folder to the permanent directory.
 
-
 ## Roadmap
 
 ### 0.2.0
 
 - [X] Create directories if they don't exist.
-- [ ] Refactor the whole thing
+- [X] Refactor the whole thing
 - [ ] Implement SQLite for managing what is already there.
+
+### 0.3.0
+
+- [ ] Index print out to edit name
